@@ -102,15 +102,14 @@ class SpecialOfferSpec extends Specification implements CheckoutDsl{
 	}
 	
 	@Unroll
-	def "K is discounted"()
+	def "2K for 120"()
 	{
 		expect:
 			computingCheckoutValueOf(skuList) == expectedValue
 			
 		where:
 			skuList | expectedValue
-			"K,K" | 150
-			"K,K,K,K" | 300
+			"K,K" | 120
 	}
 	
 	def "5P for 200"()
@@ -147,6 +146,28 @@ class SpecialOfferSpec extends Specification implements CheckoutDsl{
 			skuList | expectedValue
 			"V,V" | 90
 			"V,V,V" | 130
+	}
+	
+	@Unroll
+	def "buy any 3 of (S,T,X,Y,Z) for 45"()
+	{
+		expect:
+			computingCheckoutValueOf(skuList) == 45
+			
+		where:
+			skuList | _
+			"S,T,Y" | _
+			"Y,X,Z" | _
+			"T,Y,X" | _
+			
+	}
+	
+	@Unroll
+	def "buy any 3 of (S,T,X,Y,Z) for 45 leaves cheaest items in basket"()
+	{
+		expect:
+			computingCheckoutValueOf("S,T,Y,X,Z") == 82
+			
 	}
 	
 	def "random test that failed on the actual run"()
