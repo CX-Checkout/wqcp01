@@ -38,6 +38,12 @@ class BuyXGetAnotherFreeSpec extends Specification{
 			applyingOfferTo(A: 6L, B: 3L).resultingsSkus.B == 1L
 	}
 	
+	def "can be applied to the same item"()
+	{
+		expect:
+			applyingOfferTo(A: 6L, B: 3L).resultingsSkus.B == 1L
+	}
+	
 	SpecialOfferResult applyingOfferTo(def map)
 	{
 		return FreeWithOtherPurchaseSpecialOffer.of("A", 3, "B").apply(map)

@@ -1,18 +1,9 @@
 package befaster.solutions;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.function.Function;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import static java.util.stream.Collectors.counting;
 
 public class Checkout {
 	
@@ -29,6 +20,7 @@ public class Checkout {
 		skuValues.put("C", SkuPrice.of(20));
 		skuValues.put("D", SkuPrice.of(15));
 		skuValues.put("E", SkuPrice.of(40));
+		skuValues.put("F", SkuPrice.of(10));
 
 		
 		String[] individualSkus = skuList.split("");
@@ -39,6 +31,7 @@ public class Checkout {
 
 		List<SpecialOffer> specialOffers = Arrays.asList(
 				FreeWithOtherPurchaseSpecialOffer.of("E", 2, "B"),
+				BOGOFSpecialOffer.of("F", 2),
 				MultipleItemSpecialOffer.of("A", 5, 200),
 				MultipleItemSpecialOffer.of("A", 3, 130), 
 				MultipleItemSpecialOffer.of("B", 2, 45)

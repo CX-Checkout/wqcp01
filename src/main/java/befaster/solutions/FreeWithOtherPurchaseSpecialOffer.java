@@ -30,6 +30,7 @@ public class FreeWithOtherPurchaseSpecialOffer implements SpecialOffer{
 		{
 			resultsSkus.put(skuOfFreeItem, resultsSkus.get(skuOfFreeItem)-1);
 			sourceItemCount -= unitsToBuy;
+		
 		}
 		return new SpecialOfferResult(resultsSkus, 0);
 	}

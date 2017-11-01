@@ -17,6 +17,7 @@ class BasicCheckoutSpec extends Specification{
 			"C" | 20
 			"D" | 15
 			"E" | 40
+			"F" | 10	
 	}
 	
 	@Unroll

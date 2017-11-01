@@ -67,6 +67,20 @@ class SpecialOfferSpec extends Specification implements CheckoutDsl{
 			"E,E,E,B" | 120
 			"E,E,E,E,B,B" | 160
 	}
+	
+	@Unroll
+	def "get one F free with 2 Others"()
+	{
+		expect:
+			computingCheckoutValueOf(skuList) == expectedValue
+			
+		where:
+			skuList | expectedValue
+			"F,F,F" | 20
+			"F,F,F,F" | 30
+			"F,F,F,F,F" | 40
+			"F,F,F,F,F,F" | 40
+	}
 
 	def "random test that failed on the actual run"()
 	{
@@ -74,3 +88,4 @@ class SpecialOfferSpec extends Specification implements CheckoutDsl{
 			computingCheckoutValueOf("A,B,C,D,E,A,B,C,D,E") == 280
 	}
 }
+
