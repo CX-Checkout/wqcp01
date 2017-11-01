@@ -3,7 +3,7 @@ package befaster.solutions
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class Round1Spec extends Specification{
+class BasicCheckoutSpec extends Specification{
 	@Unroll
 	def "can purchase a single item"()
 	{
@@ -16,6 +16,7 @@ class Round1Spec extends Specification{
 			"B" | 30
 			"C" | 20
 			"D" | 15
+			"E" | 40
 	}
 	
 	@Unroll
@@ -49,7 +50,7 @@ class Round1Spec extends Specification{
 			computingCheckoutValueOf("") == 0
 	}
 	
-	@Unroll
+	/*@Unroll
 	def "will apply special offers"()
 	{
 		expect:
@@ -85,7 +86,7 @@ class Round1Spec extends Specification{
 			skuList | expectedValue
 			"A,A,A,B" | 160
 			"A,A,A,A" | 180
-	}
+	}*/
 
 	private static int computingCheckoutValueOf(String skuList)
 	{
